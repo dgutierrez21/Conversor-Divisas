@@ -27,3 +27,133 @@ img {
 button {
   cursor: pointer;
 }
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: rgb(2, 0, 36);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    217deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 0, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.contenedor {
+  width: 370px;
+  padding: 30px;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
+}
+.contenedor header {
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.contenedor form {
+  margin: 40px 0 20px 0;
+}
+
+form :where(input, select, button) {
+  width: 100%;
+  outline: none;
+  border-radius: 12.5px;
+  border: none;
+}
+
+form p {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+form input {
+  height: 50px;
+  font-size: 17px;
+  padding: 0 15px;
+  border: 1px solid #999;
+}
+
+form input:focus {
+  padding: 0 14px;
+  border: 2px solid #675afe;
+}
+
+form .lista-divisas {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lista-divisas .div-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 115px;
+  border: 1px solid #999;
+  border-radius: 12.5px;
+}
+
+.div-select select {
+  width: auto;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.div-select img {
+  max-width: 25px;
+}
+
+.lista-divisas .icono {
+  font-size: 22px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+form .tipo-de-cambio {
+  font-size: 17px;
+  margin: 20px 0 30px;
+}
+
+form button {
+  position: relative;
+  height: 52px;
+  background-image: linear-gradient(
+    225deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: #fff;
+  font-size: 17px;
+  z-index: 1;
+}
+
+form button::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 0, 1) 65%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+  border-radius: 12.5px;
+}
+
+form button:hover::before {
+  opacity: 1;
+}
