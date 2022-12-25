@@ -17,6 +17,58 @@
     <title>Conversor de divisas</title>
   </head>
   <body>
-    
+    <div class="contenedor">
+      <header>Convertidor De Divisas</header>
+
+      <form action="#">
+        <div class="cantidad">
+          <p>Cantidad</p>
+          <input type="text" value="1" />
+        </div>
+
+        <div class="lista-divisas">
+          <div class="de">
+            <p>De</p>
+            <div class="div-select">
+              <img
+                src="https://www.countryflagicons.com/FLAT/64/US.png"
+                alt="bandera"
+              />
+
+              <select name="" id="">
+                <option value="USD">USD</option>
+                <option value="CRC">CRC</option>
+                <option value="EUR">EUR</option>
+                <option value="MXN">MXN</option>
+                <option value="BRL">BRL</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="icono"><i class="fas fa-exchange-alt"></i></div>
+
+          <div class="a">
+            <p>A</p>
+            <div class="div-select">
+              <img
+                src="https://www.countryflagicons.com/FLAT/64/CR.png"
+                alt="bandera"
+              />
+
+              <select name="" id="">
+                <option value="USD">USD</option>
+                <option value="CRC">CRC</option>
+                <option value="EUR">EUR</option>
+                <option value="MXN">MXN</option>
+                <option value="BRL">BRL</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <p class="tipo-de-cambio">1 USD = 581,88 CRC</p>
+        <button>OBTENER</button>
+      </form>
+    </div>
   </body>
 </html>
