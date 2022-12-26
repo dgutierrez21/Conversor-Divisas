@@ -157,7 +157,7 @@ form button::before {
     45deg,
     rgba(2, 0, 36, 1) 0%,
     rgba(0, 0, 0, 1) 65%,
-    rgba(0, 212, 255, 1) 100%
+    rgb(0, 213, 255) 100%
   );
   z-index: -1;
   transition: opacity 0.5s linear;
@@ -167,4 +167,18 @@ form button::before {
 
 form button:hover::before {
   opacity: 1;
+}
+
+.div-select select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.div-select select::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.div-select select::-webkit-scrollbar-thumb {
+  background-color: rgb(0, 213, 255);
+  border-radius: 10px;
+  border-right: 2px solid #fff;
 }
