@@ -14,6 +14,21 @@ for (let i = 0; i < selectListaDivisas.length; i++) {
     let option = `<option value="${codigoDivisa}" ${selected}>${codigoDivisa}</option>`;
     selectListaDivisas[i].insertAdjacentHTML("beforeend", option);
   }
+
+  selectListaDivisas[i].addEventListener("change", (e) => {
+    cargarBandera(e.target);
+
+    console.log(e.target.value);
+  });
+}
+
+function cargarBandera(e) {
+  for (const codigoDivisa in codigosPaises) {
+    if (codigoDivisa === e.value) {
+      let img = e.parentElement.querySelector("img");
+      img.src = `https://www.countryflagicons.com/FLAT/64/${codigosPaises[codigoDivisa]}.png`;
+    }
+  }
 }
 
 window.onload = () => {
