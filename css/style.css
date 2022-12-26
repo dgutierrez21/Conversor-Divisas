@@ -129,6 +129,7 @@ form .lista-divisas {
 form .tipo-de-cambio {
   font-size: 17px;
   margin: 20px 0 30px;
+  font-weight: bold;
 }
 
 form button {

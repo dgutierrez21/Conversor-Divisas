@@ -80,6 +80,8 @@ function obtenerTipoCambio() {
       .then((result) => {
         let tipocambio = result.conversion_rates[aMoneda.value];
         let tipocambioTotal = (valorCantidad * tipocambio).toFixed(2);
+
+        textoTipoCambioTotal.style.color = "#000";
         textoTipoCambioTotal.textContent = `${valorCantidad} ${deMoneda.value} = ${tipocambioTotal} ${aMoneda.value}`;
 
         console.log(result);
@@ -97,9 +99,17 @@ function obtenerTipoCambio() {
       })
       .catch(() => {
         textoTipoCambioTotal.style.color = "red";
-        textoTipoCambioTotal.style.fontWeight = "bold";
         textoTipoCambioTotal.textContent =
           "Algo salió mal, verifique su conexión a internet o vuelva a intentar más tarde.";
+
+        btnConvertir.style.opacity = 1;
+        btnConvertir.style.cursor = "pointer";
+        btnConvertir.textContent = "CONVERTIR";
+        btnConvertir.disabled = false;
+
+        iconoItercambiarTipoCambio.style.opacity = 1;
+        iconoItercambiarTipoCambio.style.cursor = "pointer";
+        iconoItercambiarTipoCambio.style.pointerEvents = "all";
       });
   }, 500);
 }
