@@ -41,6 +41,18 @@ btnConvertir.addEventListener("click", (e) => {
   obtenerTipoCambio();
 });
 
+const iconoItercambiarTipoCambio = document.querySelector(".icono");
+iconoItercambiarTipoCambio.addEventListener("click", () => {
+  let codigoTemporal = deMoneda.value;
+
+  deMoneda.value = aMoneda.value;
+  aMoneda.value = codigoTemporal;
+
+  cargarBandera(deMoneda);
+  cargarBandera(aMoneda);
+
+  obtenerTipoCambio();
+});
 function obtenerTipoCambio() {
   const cantidad = document.querySelector(".cantidad input");
   let valorCantidad = cantidad.value;
