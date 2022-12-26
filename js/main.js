@@ -16,6 +16,10 @@ for (let i = 0; i < selectListaDivisas.length; i++) {
   }
 }
 
+window.onload = () => {
+  obtenerTipoCambio();
+};
+
 btnConvertir.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -33,15 +37,28 @@ function obtenerTipoCambio() {
 
   let url = `https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${deMoneda.value}`;
 
-  fetch(url)
-    .then((response) => response.json())
-    .then((result) => {
-      let tipocambio = result.conversion_rates[aMoneda.value];
+  btnConvertir.style.opacity = 0.5;
+  btnConvertir.style.cursor = "not-allowed";
+  btnConvertir.textContent = "CONVIRTIENDO...";
+  btnConvertir.disabled = true;
 
-      let tipocambioTotal = (valorCantidad * tipocambio).toFixed(2);
+  setTimeout(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((result) => {
+        let tipocambio = result.conversion_rates[aMoneda.value];
+        let tipocambioTotal = (valorCantidad * tipocambio).toFixed(2);
+        const textoTipoCambioTotal = document.querySelector(".tipo-de-cambio");
+        textoTipoCambioTotal.textContent = `${valorCantidad} ${deMoneda.value} = ${tipocambioTotal} ${aMoneda.value}`;
 
-      console.log(result);
-      console.log(tipocambio);
-      console.log(tipocambioTotal);
-    });
+        console.log(result);
+        console.log(tipocambio);
+        console.log(tipocambioTotal);
+
+        btnConvertir.style.opacity = 1;
+        btnConvertir.style.cursor = "pointer";
+        btnConvertir.textContent = "CONVERTIR";
+        btnConvertir.disabled = false;
+      });
+  }, 500);
 }
