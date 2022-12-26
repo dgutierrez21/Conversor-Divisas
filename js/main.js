@@ -54,6 +54,7 @@ iconoItercambiarTipoCambio.addEventListener("click", () => {
   obtenerTipoCambio();
 });
 function obtenerTipoCambio() {
+  const textoTipoCambioTotal = document.querySelector(".tipo-de-cambio");
   const cantidad = document.querySelector(".cantidad input");
   let valorCantidad = cantidad.value;
 
@@ -79,7 +80,6 @@ function obtenerTipoCambio() {
       .then((result) => {
         let tipocambio = result.conversion_rates[aMoneda.value];
         let tipocambioTotal = (valorCantidad * tipocambio).toFixed(2);
-        const textoTipoCambioTotal = document.querySelector(".tipo-de-cambio");
         textoTipoCambioTotal.textContent = `${valorCantidad} ${deMoneda.value} = ${tipocambioTotal} ${aMoneda.value}`;
 
         console.log(result);
@@ -94,6 +94,12 @@ function obtenerTipoCambio() {
         iconoItercambiarTipoCambio.style.opacity = 1;
         iconoItercambiarTipoCambio.style.cursor = "pointer";
         iconoItercambiarTipoCambio.style.pointerEvents = "all";
+      })
+      .catch(() => {
+        textoTipoCambioTotal.style.color = "red";
+        textoTipoCambioTotal.style.fontWeight = "bold";
+        textoTipoCambioTotal.textContent =
+          "Algo salió mal, verifique su conexión a internet o vuelva a intentar más tarde.";
       });
   }, 500);
 }
