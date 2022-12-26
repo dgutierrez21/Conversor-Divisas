@@ -69,6 +69,10 @@ function obtenerTipoCambio() {
   btnConvertir.textContent = "CONVIRTIENDO...";
   btnConvertir.disabled = true;
 
+  iconoItercambiarTipoCambio.style.opacity = 0.5;
+  iconoItercambiarTipoCambio.style.cursor = "not-allowed";
+  iconoItercambiarTipoCambio.style.pointerEvents = "none";
+
   setTimeout(() => {
     fetch(url)
       .then((response) => response.json())
@@ -86,6 +90,10 @@ function obtenerTipoCambio() {
         btnConvertir.style.cursor = "pointer";
         btnConvertir.textContent = "CONVERTIR";
         btnConvertir.disabled = false;
+
+        iconoItercambiarTipoCambio.style.opacity = 1;
+        iconoItercambiarTipoCambio.style.cursor = "pointer";
+        iconoItercambiarTipoCambio.style.pointerEvents = "all";
       });
   }, 500);
 }
